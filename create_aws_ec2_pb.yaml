@@ -1,5 +1,3 @@
-# demo_setup.yml
-
 - hosts: localhost
   gather_facts: False
 
