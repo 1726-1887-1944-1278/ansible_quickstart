@@ -1,0 +1,33 @@
+# demo_setup.yml
+
+- hosts: localhost
+  gather_facts: False
+
+  tasks:
+    - name: Provision an EC2 instance with a public IP address
+      amazon.aws.ec2_instance:
+        region: us-east-2
+        name: Demo
+        instance_type: t2.micro
+        security_group: default
+        network:
+          assign_public_ip: true
+        image_id: ami-0ec3d9efceafb89e0
+        tags:
+          Environment: Testing
+      register: result
+
+    - name: Create a security group rule
+      amazon.aws.ec2_security_group:
+        region: us-east-2
+        name: default
+        description: 
+        rules:
+          - proto: tcp
+            from_port: 22
+            to_port: 22
+            cidr_ip: 73.217.24.48/32
+
+
+   
+ 

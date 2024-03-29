@@ -1,0 +1,12 @@
+myhosts:
+  hosts:
+    ubuntu: 
+      ansible_host: ubuntu-22.04-arm64.shared
+      ansible_user: parallels     
+    debian: 
+      ansible_host: debian-gnu-linux-11.3-arm64.shared
+      ansible_user: parallels     
+    ec2_debian:
+      ansible_host: ec2-3-15-198-185.us-east-2.compute.amazonaws.com
+      ansible_user: admin
+
